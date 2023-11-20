@@ -41,6 +41,9 @@ def lambda_handler(event, context):
     bucket_name = event['Records'][0]['s3']['bucket']['name']
     file_key = event['Records'][0]['s3']['object']['key']
 
+    if 'mp3' not in file_key:
+        logger.info("not tragger audio file type "+ json.dumps(event))
+       
     # Download the file from S3
     download_path = '/tmp/' + file_key
     s3_client.download_file(bucket_name, file_key, download_path)
