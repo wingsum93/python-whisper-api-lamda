@@ -1,0 +1,1 @@
+This project is python lamda, sent audio file to openai whisper api to 
